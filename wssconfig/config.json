@@ -1,0 +1,19 @@
+{
+    "http": {
+        "port": ":8080"
+    },
+    "binance-future-secret": {
+        "api-key": "apiKey_test",
+        "secret-key": "secretKey_test"
+    },
+    "binance-future-url": {
+        "base-url": "baseUrl_test"
+    },
+    "market-stream": {
+        "kline-stream": "klineStream_test",
+        "market-price-stream": "marketPriceStream_test"
+    },
+    "binance-future-service-name": {
+        "market-stream": "/marketstream"
+    }
+}
