@@ -77,7 +77,7 @@ type klineClientWs struct { // method write, read, pong handler
 	ClientDone       chan bool
 }
 
-func (k *klineClientWs) ReadTo(trade_server_done chan<- bool) {
+func (k *klineClientWs) ReadFrom(trade_server_done chan<- bool) {
 	for {
 		_, msg, err := k.Dial.ReadMessage()
 		if err != nil {
@@ -133,7 +133,7 @@ func (m *marketStreamWs) KlineWs(
 	}
 
 	go trade_server.WriteTo(bn_client.ClientDone, bn_client.ReadFromBnServer)
-	go bn_client.ReadTo(trade_server.ServerDone)
+	go bn_client.ReadFrom(trade_server.ServerDone)
 
 	<-trade_server.ServerDone
 	<-bn_client.ClientDone
